@@ -3030,3 +3030,38 @@ hr {
     color: color(var(--green) l(+5%) s(-5%));
 }
 
+/* 13. Sidebar
+/* ---------------------------------------------------------- */
+
+@media screen and (max-width:1024px) {  
+    #sidebar-container {
+        display: none;
+    }
+    #sidebar {
+        display: none;
+    }
+}
+
+#content-flex {
+    display: flex; /* Display content as flex to keep sidebar on the left */
+    display: -webkit-flex;
+}
+
+#sidebar-container {
+    width: 15vw; /* Set the width so it always stays the same */
+    /* flex: 0 1 195px; */
+}
+
+#sidebar {
+    text-align: center;
+    width: 15vw;
+    padding-top: 75px;
+    height: 100vh; /* full height of the window */
+    position: fixed;
+}
+
+#content-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    /* -webkit-flex: 1; */
+}
