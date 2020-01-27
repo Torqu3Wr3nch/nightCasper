@@ -628,7 +628,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     height: 200px;
     background: var(--lightgrey) no-repeat center center;
 
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .post-card-content-link {
