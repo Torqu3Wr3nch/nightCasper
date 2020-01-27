@@ -3053,7 +3053,6 @@ hr {
 }
 
 #sidebar {
-    text-align: center;
     width: 15vw;
     padding-top: 75px;
     height: 100vh; /* full height of the window */
@@ -3064,4 +3063,8 @@ hr {
     flex: 1 1 auto;
     min-width: 0;
     /* -webkit-flex: 1; */
+}
+
+#toc ul {
+    list-style: none;
 }

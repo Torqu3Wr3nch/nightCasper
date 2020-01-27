@@ -87,5 +87,8 @@
                 "width": 2000
             }
         }
+    },
+    "dependencies": {
+        "gulp-uglify-es": "^2.0.0"
     }
 }
