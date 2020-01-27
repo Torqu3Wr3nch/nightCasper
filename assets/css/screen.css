@@ -3068,3 +3068,14 @@ hr {
 #toc ul {
     list-style: none;
 }
+
+#toc a {
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+#toc a:hover {
+    color: var(--blue);
+    text-decoration: none;
+    box-shadow: var(--blue) 0 -1px 0 inset;
+}
