@@ -142,6 +142,9 @@ into the {body} of the default.hbs template --}}
 <script type="text/javascript">
     var toc = document.getElementById('toc');
     toc.innerHTML = getTocMarkup(document);
+    if (toc.innerHTML == "") {
+        document.getElementById('sidebar-container').style.display = "none";
+    }
 </script>
 
 {{!-- Links to Previous/Next posts --}}
