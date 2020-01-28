@@ -5,125 +5,147 @@ into the {body} of the default.hbs template --}}
 
 <header class="site-header">
     {{> site-header}}
+    <script type="text/javascript" src="{{asset "js/toc.js"}}"></script>
 </header>
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
-<main id="site-main" class="site-main outer">
-    <div class="inner">
+<div id="content-flex">
 
-        <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+    <div id="sidebar-container"> {{! Sidebar }}
+        <div id="sidebar"> {{! Background image if there is one}}
+            <div id="toc"></div>
+        </div>
+    </div>
 
-            <header class="post-full-header">
+    <div id="content-body">
+        <main id="site-main" class="site-main outer">
+            <div class="inner">
 
-                {{#if primary_tag}}
-                <section class="post-full-tags">
-                    {{#primary_tag}}
-                    <a href="{{url}}">{{name}}</a>
-                    {{/primary_tag}}
-                </section>
-                {{/if}}
+                <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
 
-                <h1 class="post-full-title">{{title}}</h1>
+                    <header class="post-full-header">
 
-                {{#if custom_excerpt}}
-                <p class="post-full-custom-excerpt">{{custom_excerpt}}</p>
-                {{/if}}
-
-                <div class="post-full-byline">
-
-                    <section class="post-full-byline-content">
-
-                        <ul class="author-list">
-                            {{#foreach authors}}
-                            <li class="author-list-item">
-
-                                <div class="author-card">
-                                    {{#if profile_image}}
-                                    <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
-                                    {{else}}
-                                    <div class="author-profile-image">{{> "icons/avatar"}}</div>
-                                    {{/if}}
-                                    <div class="author-info">
-                                        {{#if bio}}
-                                        <div class="bio">
-                                            <h2>{{name}}</h2>
-                                            <p>{{bio}}</p>
-                                            <p><a href="{{url}}">More posts</a> by {{name}}.</p>
-                                        </div>
-                                        {{else}}
-                                        <h2>{{name}}</h2>
-                                        <p>Read <a href="{{url}}">more posts</a> by this author.</p>
-                                        {{/if}}
-                                    </div>
-                                </div>
-
-                                {{#if profile_image}}
-                                <a href="{{url}}" class="author-avatar">
-                                    <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
-                                </a>
-                                {{else}}
-                                <a href="{{url}}" class="author-avatar author-profile-image">{{> "icons/avatar"}}</a>
-                                {{/if}}
-
-                            </li>
-                            {{/foreach}}
-                        </ul>
-
-                        <section class="post-full-byline-meta">
-                            <h4 class="author-name">{{authors}}</h4>
-                            <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
-                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
-                            </div>
+                        {{#if primary_tag}}
+                        <section class="post-full-tags">
+                            {{#primary_tag}}
+                            <a href="{{url}}">{{name}}</a>
+                            {{/primary_tag}}
                         </section>
+                        {{/if}}
 
+                        <h1 class="post-full-title">{{title}}</h1>
+
+                        {{#if custom_excerpt}}
+                        <p class="post-full-custom-excerpt">{{custom_excerpt}}</p>
+                        {{/if}}
+
+                        <div class="post-full-byline">
+
+                            <section class="post-full-byline-content">
+
+                                <ul class="author-list">
+                                    {{#foreach authors}}
+                                    <li class="author-list-item">
+
+                                        <div class="author-card">
+                                            {{#if profile_image}}
+                                            <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                                            {{else}}
+                                            <div class="author-profile-image">{{> "icons/avatar"}}</div>
+                                            {{/if}}
+                                            <div class="author-info">
+                                                {{#if bio}}
+                                                <div class="bio">
+                                                    <h2>{{name}}</h2>
+                                                    <p>{{bio}}</p>
+                                                    <p><a href="{{url}}">More posts</a> by {{name}}.</p>
+                                                </div>
+                                                {{else}}
+                                                <h2>{{name}}</h2>
+                                                <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+
+                                        {{#if profile_image}}
+                                        <a href="{{url}}" class="author-avatar">
+                                            <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                                        </a>
+                                        {{else}}
+                                        <a href="{{url}}" class="author-avatar author-profile-image">{{> "icons/avatar"}}</a>
+                                        {{/if}}
+
+                                    </li>
+                                    {{/foreach}}
+                                </ul>
+
+                                <section class="post-full-byline-meta">
+                                    <h4 class="author-name">{{authors}}</h4>
+                                    <div class="byline-meta-content">
+                                        <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+                                        <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
+                                    </div>
+                                </section>
+
+                            </section>
+
+
+                        </div>
+                    </header>
+
+                    {{#if feature_image}}
+                    <figure class="post-full-image">
+                        {{!-- This is a responsive image, it loads different sizes depending on device
+                        https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+                        <img
+                            srcset="{{img_url feature_image size="s"}} 300w,
+                                    {{img_url feature_image size="m"}} 600w,
+                                    {{img_url feature_image size="l"}} 1000w,
+                                    {{img_url feature_image size="xl"}} 2000w"
+                            sizes="(max-width: 800px) 400px,
+                                (max-width: 1170px) 1170px,
+                                    2000px"
+                            src="{{img_url feature_image size="xl"}}"
+                            alt="{{title}}"
+                        />
+                    </figure>
+                    {{/if}}
+
+                    <section class="post-full-content">
+                        <div class="post-content">
+                            {{content}}
+                        </div>
                     </section>
 
+                    {{!-- Email subscribe form at the bottom of the page --}}
+                    {{#if @labs.members}}
+                        {{> subscribe-form}}
+                    {{/if}}
 
-                </div>
-            </header>
+                    {{!--
+                    <section class="post-full-comments">
+                        If you want to embed comments, this is a good place to do it!
+                    </section>
+                    --}}
 
-            {{#if feature_image}}
-            <figure class="post-full-image">
-                {{!-- This is a responsive image, it loads different sizes depending on device
-                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-                <img
-                    srcset="{{img_url feature_image size="s"}} 300w,
-                            {{img_url feature_image size="m"}} 600w,
-                            {{img_url feature_image size="l"}} 1000w,
-                            {{img_url feature_image size="xl"}} 2000w"
-                    sizes="(max-width: 800px) 400px,
-                        (max-width: 1170px) 1170px,
-                            2000px"
-                    src="{{img_url feature_image size="xl"}}"
-                    alt="{{title}}"
-                />
-            </figure>
-            {{/if}}
+                </article>
 
-            <section class="post-full-content">
-                <div class="post-content">
-                    {{content}}
-                </div>
-            </section>
-
-            {{!-- Email subscribe form at the bottom of the page --}}
-            {{#if @labs.members}}
-                {{> subscribe-form}}
-            {{/if}}
-
-            {{!--
-            <section class="post-full-comments">
-                If you want to embed comments, this is a good place to do it!
-            </section>
-            --}}
-
-        </article>
-
+            </div>
+        </main>
     </div>
-</main>
+    
+</div>
+
+{{!-- Table of Contents --}}
+<script type="text/javascript">
+    var toc = document.getElementById('toc');
+    toc.innerHTML = getTocMarkup(document);
+    if (toc.innerHTML == "") {
+        document.getElementById('sidebar-container').style.display = "none";
+    }
+</script>
 
 {{!-- Links to Previous/Next posts --}}
 <aside class="read-next outer">

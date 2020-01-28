@@ -2070,7 +2070,7 @@ Usage (In Ghost editor):
 }
 
 .post-full-content .kg-width-full .kg-image {
-    max-width: 100vw;
+    max-width: 85vw;
 }
 
 .post-full-content figure {
@@ -2123,7 +2123,7 @@ Usage (In Ghost editor):
     display: flex;
     flex-direction: column;
     max-width: 1040px;
-    width: 100vw;
+    width: 85vw;
 }
 
 .kg-gallery-row {
@@ -3030,3 +3030,52 @@ hr {
     color: color(var(--green) l(+5%) s(-5%));
 }
 
+/* 13. Sidebar
+/* ---------------------------------------------------------- */
+
+@media screen and (max-width:1024px) {  
+    #sidebar-container {
+        display: none;
+    }
+    #sidebar {
+        display: none;
+    }
+}
+
+#content-flex {
+    display: flex; /* Display content as flex to keep sidebar on the left */
+    display: -webkit-flex;
+}
+
+#sidebar-container {
+    width: 15vw; /* Set the width so it always stays the same */
+    /* flex: 0 1 195px; */
+}
+
+#sidebar {
+    width: 15vw;
+    padding-top: 75px;
+    height: 100vh; /* full height of the window */
+    position: fixed;
+}
+
+#content-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    /* -webkit-flex: 1; */
+}
+
+#toc ul {
+    list-style: none;
+}
+
+#toc a {
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+#toc a:hover {
+    color: var(--blue);
+    text-decoration: none;
+    box-shadow: var(--blue) 0 -1px 0 inset;
+}
