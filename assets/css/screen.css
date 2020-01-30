@@ -3030,7 +3030,7 @@ hr {
     color: color(var(--green) l(+5%) s(-5%));
 }
 
-/* 13. Sidebar
+/* 13. nightCasper Sidebar
 /* ---------------------------------------------------------- */
 
 @media screen and (max-width:1024px) {  
@@ -3078,4 +3078,16 @@ hr {
     color: var(--blue);
     text-decoration: none;
     box-shadow: var(--blue) 0 -1px 0 inset;
+}
+
+/* 14. nightCasper Tag Cloud Page
+/* ---------------------------------------------------------- */
+
+#tagCloud{
+    text-align: center;
+}
+
+.tag-cloud{
+    display: inline-block;
+    margin: 0 1px;
 }

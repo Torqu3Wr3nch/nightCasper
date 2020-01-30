@@ -1,0 +1,68 @@
+{{!< default}}
+
+<header class="site-header">
+  <div class="outer site-nav-main">
+    <div class="inner">
+      {{> "site-nav"}}
+    </div>
+  </div>
+</header>
+
+{{#post}}
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <header class="post-full-header">
+        <h1 class="post-full-title" style="text-align: center;">{{title}}</h1>
+      </header>
+
+      <div id="tagCloud">
+        {{#get 'tags' limit='1' include='count.posts' order='count.posts asc'}}
+          {{#foreach tags}}
+            <script>
+              var min = {{count.posts}};
+            </script>
+          {{/foreach}}
+        {{/get}}
+        
+        
+        {{#get 'tags' limit='1' include='count.posts' order='count.posts desc'}}
+          {{#foreach tags}}
+            <script>
+              var max = {{count.posts}};
+            </script>
+          {{/foreach}}
+        {{/get}}
+
+        <script>
+          const maxFontSize = 30;
+          const minFontSize = 12;
+          const maxColor = 255;
+          const minColor = 135;
+          const slopeSize = ((maxFontSize - minFontSize)/(max - min));
+          const slopeColor = ((maxColor - minColor)/(max-min));
+          const sizeB = (minFontSize-(slopeSize));
+          const colorB = (minColor-(slopeColor));
+        </script>
+
+        {{#get 'tags' limit='all' include='count.posts' order='name ASC'}}
+          {{#foreach tags}}
+            <span class="tag-cloud" id="tag-{{ name }}">
+              <a href='{{ url }}'>{{ name }}</a>
+            </span>
+            <script>
+              var size = (slopeSize*({{count.posts}}) + sizeB);
+              var spanColor = (slopeColor*({{count.posts}})+(colorB));
+              document.getElementById('tag-{{ name }}').style.fontSize = (size + "px");
+              document.getElementById('tag-{{ name }}').childNodes[1].style.color = "rgb(" + spanColor + ", " + spanColor + ", " + spanColor + ")";
+            </script>
+          {{/foreach}}
+        {{/get}}
+
+      </div>
+
+  </div>
+</main>
+
+{{/post}}
