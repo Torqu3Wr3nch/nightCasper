@@ -122,6 +122,16 @@
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
 
+    {{!-- Fluidbox --}}
+    <script>
+        window.fluidboxGhostConfig = {
+            theme: 'dark', // Options: light, dark, image-backdrop, hsla(262, 100%, 82%, 0.6)
+            showCaption: true, // Sets whether to capture the caption and show it below the image when expanded
+        }
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/gh/Torqu3Wr3nch/fluidbox-ghost-blog-plugin@0.1.1a/fluidbox-ghost-blog-plugin.min.js"></script>
+
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}
 
