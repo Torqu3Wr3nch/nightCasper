@@ -3102,6 +3102,15 @@ progress.reading-progress-bar[value]::-webkit-progress-value {
 background-color: #3eb0ef;
 }
 
+.post-full-content pre[class*=language-]{
+    line-height: 1em;
+    padding: 1em 3em;
+}
+
+.post-full-content pre code {
+    font-size: 1.4rem;
+}
+
 /* 14. nightCasper Tag Cloud Page
 /* ---------------------------------------------------------- */
 
