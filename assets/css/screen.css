@@ -3103,12 +3103,9 @@ background-color: #3eb0ef;
 }
 
 .post-full-content pre[class*=language-]{
-    line-height: 1em;
+    line-height: 1.3em;
     padding: 1em 3em;
-}
-
-.post-full-content pre code {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 /* 14. nightCasper Tag Cloud Page
