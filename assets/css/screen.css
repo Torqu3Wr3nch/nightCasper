@@ -925,7 +925,7 @@ make sure this only happens on large viewports / desktop-ish devices.
 .post-full-header {
     position: relative;
     margin: 0 auto;
-    padding: 70px 170px 50px;
+    padding: 70px 100px 50px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
@@ -1005,7 +1005,7 @@ make sure this only happens on large viewports / desktop-ish devices.
 .post-full-content {
     position: relative;
     margin: 0 auto;
-    padding: 0 170px 6vw;
+    padding: 0 100px 6vw;
     min-height: 230px;
     font-family: Georgia, serif;
     font-size: 2.0rem;
@@ -3106,6 +3106,7 @@ background-color: #3eb0ef;
     line-height: 1.3em;
     padding: 1em 3em;
     font-size: 1.5rem;
+    margin: 1.5em 0px 3em;
 }
 
 /* 14. nightCasper Tag Cloud Page
