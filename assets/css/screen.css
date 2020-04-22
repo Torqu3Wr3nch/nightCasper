@@ -3095,15 +3095,22 @@ hr {
 }
 
 #sidebar-container {
-    width: 15vw; /* Set the width so it always stays the same */
+    width: 17vw; /* Set the width so it always stays the same */
     /* flex: 0 1 195px; */
 }
 
 #sidebar {
-    width: 15vw;
+    width: 17vw;
     padding-top: 75px;
     height: 100vh; /* full height of the window */
     position: fixed;
+    overflow-y: auto; /* add scrollbar to sidebar if ToC gets too long */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 #content-body {
